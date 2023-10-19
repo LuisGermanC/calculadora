@@ -1,6 +1,6 @@
 ﻿namespace Calculadora
 {
-    partial class Calculadora
+    partial class CalculadoraVTA
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculadora));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculadoraVTA));
             this.btnUno = new System.Windows.Forms.Button();
             this.txtResultado = new System.Windows.Forms.TextBox();
             this.btnDos = new System.Windows.Forms.Button();
@@ -213,7 +213,7 @@
             this.btnElevaralCuadrado.Tag = "²";
             this.btnElevaralCuadrado.Text = "x²";
             this.btnElevaralCuadrado.UseVisualStyleBackColor = true;
-            this.btnElevaralCuadrado.Click += new System.EventHandler(this.clickOperador);
+            this.btnElevaralCuadrado.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnRaizCuadrada
             // 
@@ -225,7 +225,7 @@
             this.btnRaizCuadrada.Tag = "√";
             this.btnRaizCuadrada.Text = "√";
             this.btnRaizCuadrada.UseVisualStyleBackColor = true;
-            this.btnRaizCuadrada.Click += new System.EventHandler(this.clickOperador);
+            this.btnRaizCuadrada.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnMultiplicar
             // 
@@ -237,7 +237,7 @@
             this.btnMultiplicar.Tag = "x";
             this.btnMultiplicar.Text = "x";
             this.btnMultiplicar.UseVisualStyleBackColor = true;
-            this.btnMultiplicar.Click += new System.EventHandler(this.clickOperador);
+            this.btnMultiplicar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnDividir
             // 
@@ -249,7 +249,7 @@
             this.btnDividir.Tag = "/";
             this.btnDividir.Text = "/";
             this.btnDividir.UseVisualStyleBackColor = true;
-            this.btnDividir.Click += new System.EventHandler(this.clickOperador);
+            this.btnDividir.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnRestar
             // 
@@ -261,7 +261,7 @@
             this.btnRestar.Tag = "-";
             this.btnRestar.Text = "-";
             this.btnRestar.UseVisualStyleBackColor = true;
-            this.btnRestar.Click += new System.EventHandler(this.clickOperador);
+            this.btnRestar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnSumar
             // 
@@ -273,7 +273,7 @@
             this.btnSumar.Tag = "+";
             this.btnSumar.Text = "+";
             this.btnSumar.UseVisualStyleBackColor = true;
-            this.btnSumar.Click += new System.EventHandler(this.clickOperador);
+            this.btnSumar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnResultado
             // 
@@ -329,7 +329,7 @@
             this.button1.Tag = "c";
             this.button1.Text = "COS";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.clickOperador);
+            this.button1.Click += new System.EventHandler(this.clickoperador);
             // 
             // button2
             // 
@@ -341,7 +341,7 @@
             this.button2.Tag = "s";
             this.button2.Text = "SIN";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.clickOperador);
+            this.button2.Click += new System.EventHandler(this.clickoperador);
             // 
             // dgvResultados
             // 

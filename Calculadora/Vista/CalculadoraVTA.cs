@@ -8,20 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Calculadora.Controlador;
+using Calculadora.Modelo;
 using MySql.Data.MySqlClient;
 
 namespace Calculadora
 {
-    public partial class Calculadora : Form
+    public partial class CalculadoraVTA : Form
     {
-        double Numero1=0;
-        double Numero2=0;
-        char Operador;
-
-        public Calculadora()
+        private readonly CalculadoraController controller;
+        public CalculadoraVTA()
         {
+            controller = new CalculadoraController();
             InitializeComponent();
         }
+        private double numero1=0;
+        private double numero2 =0;
+        private char operador;
+
         MySqlConnection conn = new MySqlConnection("" +
             "server=localhost;user id=root;password=;" +
             "database=dbcalculadora;sslMode=none");
@@ -37,7 +41,7 @@ namespace Calculadora
             try
             {
 
-                sql = "Select id, Numero1, Operador, Numero2, Resultado" +
+                sql = "Select id, numero1, operador, numero2, Resultado" +
                     "from resultados";
                 conn.Open();
                 cmd = new MySqlCommand();
@@ -48,9 +52,6 @@ namespace Calculadora
                 dt = new DataTable();
                 da.Fill(dt);
                 dgvResultados.DataSource = dt;
-
-
-
             }
             catch (Exception ex)
             {
@@ -66,8 +67,8 @@ namespace Calculadora
         {
             try
             {
-                sql = "Inset into resultados(Numero1, Operador, Numero2, Resultado)" +
-                    "values('"+Numero1+"','"+Operador+"','"+Numero2+"','" + txtResultado.Text+"')";
+                sql = "Inset into resultados(numero1, operador, numero2, Resultado)" +
+                    "values('"+numero1+"','"+operador+"','"+numero2+"','" + txtResultado.Text+"')";
             }
             catch (Exception ex)
             {
@@ -82,85 +83,31 @@ namespace Calculadora
             
                 txtResultado.Text = "";
                 txtResultado.Text += boton.Text;
-            
-
-
         }
         private void Calculadora_Load(object sender, EventArgs e)
         {
 
         }
-        private void clickOperador(object sender, EventArgs e)
+        private void clickoperador(object sender, EventArgs e)
         {
             var boton = ((Button)sender);
-            Numero1 = Convert.ToDouble(txtResultado.Text);
-            Operador = Convert.ToChar(boton.Tag);
-            if (Operador == '²')
-            {
-                
-                  Numero1 = Math.Pow(Numero1, 2);
-                  txtResultado.Text = Numero1.ToString();
-            }
-            else if (Operador == '√')
-            {
-                Numero1 = Math.Sqrt(Numero1);
-                txtResultado.Text = Numero1.ToString();
-            }
-            else if (Operador == 's')
-            {
-                Numero1 = Math.Sin(Numero1 * Math.PI / 180);
-                txtResultado.Text = Numero1.ToString();
-            }
-            else if (Operador == 'c')
-            {
-                 Numero1 = Math.Cos(Numero1*Math.PI/180);
-                txtResultado.Text = Numero1.ToString();
-            }
-
-
-            else
-            {
-                txtResultado.Text = "0";
-            }
-           
-
+            numero1 = Convert.ToDouble(txtResultado.Text);
+            operador = Convert.ToChar(boton.Tag);
+            txtResultado.Text = controller.OperarNumero1(numero1, operador);
         }
 
         private void btnResultado_Click(object sender, EventArgs e)
         {
-            Numero2 = Convert.ToDouble(txtResultado.Text);
-
-            if (Operador == '+')
+            numero2 = Convert.ToDouble(txtResultado.Text);
+            string resultado = controller.RealizarOperacion(numero1, numero2, operador);
+            if (resultado == "No se puede dividir por cero")
             {
-                txtResultado.Text = (Numero1 + Numero2).ToString();
-                Numero1 = Convert.ToDouble(txtResultado.Text);
-
+                MessageBox.Show(resultado);
             }
-            else if(Operador== '-')
+            else
             {
-                txtResultado.Text = (Numero1 - Numero2).ToString();
-                Numero1 = Convert.ToDouble(txtResultado.Text);
+                txtResultado.Text = resultado;
             }
-            else if (Operador == 'x')
-            {
-                txtResultado.Text = (Numero1 * Numero2).ToString();
-                Numero1 = Convert.ToDouble(txtResultado.Text);
-            }
-            else if (Operador == '/')
-            {
-                if(Numero2 != 0)
-                {
-                txtResultado.Text = (Numero1 / Numero2).ToString();
-                Numero1 = Convert.ToDouble(txtResultado.Text);
-                }
-                else
-                {
-                    MessageBox.Show("No se puede dicidir por cero");
-                }
-               
-            }
-
-
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -177,9 +124,9 @@ namespace Calculadora
 
         private void btnBorrarTodo_Click(object sender, EventArgs e)
         {
-            Numero1 = 0; 
-            Numero2= 0;
-            Operador = '/';
+            numero1 = 0; 
+            numero2= 0;
+            operador = '/';
             txtResultado.Text = "0";
         }
 
@@ -198,9 +145,9 @@ namespace Calculadora
 
         private void btnSigno_Click(object sender, EventArgs e)
         {
-            Numero1 = Convert.ToDouble(txtResultado.Text);
-            Numero1 *= -1;
-            txtResultado.Text = Numero1.ToString();
+            numero1 = Convert.ToDouble(txtResultado.Text);
+            numero1 *= -1;
+            txtResultado.Text = numero1.ToString();
         }
 
         
