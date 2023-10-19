@@ -255,7 +255,7 @@
             this.btnElevaralCuadrado.Tag = "²";
             this.btnElevaralCuadrado.Text = "x²";
             this.btnElevaralCuadrado.UseVisualStyleBackColor = false;
-            this.btnElevaralCuadrado.Click += new System.EventHandler(this.clickOperador);
+            this.btnElevaralCuadrado.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnRaizCuadrada
             // 
@@ -270,7 +270,7 @@
             this.btnRaizCuadrada.Tag = "√";
             this.btnRaizCuadrada.Text = "√";
             this.btnRaizCuadrada.UseVisualStyleBackColor = false;
-            this.btnRaizCuadrada.Click += new System.EventHandler(this.clickOperador);
+            this.btnRaizCuadrada.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnMultiplicar
             // 
@@ -285,7 +285,7 @@
             this.btnMultiplicar.Tag = "x";
             this.btnMultiplicar.Text = "x";
             this.btnMultiplicar.UseVisualStyleBackColor = false;
-            this.btnMultiplicar.Click += new System.EventHandler(this.clickOperador);
+            this.btnMultiplicar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnDividir
             // 
@@ -300,7 +300,7 @@
             this.btnDividir.Tag = "/";
             this.btnDividir.Text = "/";
             this.btnDividir.UseVisualStyleBackColor = false;
-            this.btnDividir.Click += new System.EventHandler(this.clickOperador);
+            this.btnDividir.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnRestar
             // 
@@ -315,7 +315,7 @@
             this.btnRestar.Tag = "-";
             this.btnRestar.Text = "-";
             this.btnRestar.UseVisualStyleBackColor = false;
-            this.btnRestar.Click += new System.EventHandler(this.clickOperador);
+            this.btnRestar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnSumar
             // 
@@ -330,7 +330,7 @@
             this.btnSumar.Tag = "+";
             this.btnSumar.Text = "+";
             this.btnSumar.UseVisualStyleBackColor = false;
-            this.btnSumar.Click += new System.EventHandler(this.clickOperador);
+            this.btnSumar.Click += new System.EventHandler(this.clickoperador);
             // 
             // btnResultado
             // 
@@ -401,7 +401,7 @@
             this.button1.Tag = "c";
             this.button1.Text = "COS";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.clickOperador);
+            this.button1.Click += new System.EventHandler(this.clickoperador);
             // 
             // button2
             // 
@@ -416,7 +416,7 @@
             this.button2.Tag = "s";
             this.button2.Text = "SIN";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.clickOperador);
+            this.button2.Click += new System.EventHandler(this.clickoperador);
             // 
             // dgvResultados
             // 

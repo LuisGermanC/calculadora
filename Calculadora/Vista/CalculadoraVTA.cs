@@ -68,12 +68,11 @@ namespace Calculadora
             try
             {
                 sql = "Inset into resultados(Numero1, Operador, Numero2, Resultado)" +
-                    "values('"+Numero1+"','"+Operador+"','"+Numero2+"','" + txtResultado.Text+"')";
+                    "values('"+numero1+"','"+operador+"','"+numero2+"','" + txtResultado.Text+"')";
                 conn.Open();
                 cmd = new MySqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
-
             }
             catch (Exception ex)
             {
