@@ -68,6 +68,11 @@ namespace Calculadora
             {
                 sql = "Inset into resultados(Numero1, Operador, Numero2, Resultado)" +
                     "values('"+Numero1+"','"+Operador+"','"+Numero2+"','" + txtResultado.Text+"')";
+                conn.Open();
+                cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+
             }
             catch (Exception ex)
             {
@@ -155,7 +160,7 @@ namespace Calculadora
                 }
                 else
                 {
-                    MessageBox.Show("No se puede dicidir por cero");
+                    MessageBox.Show("No se puede dividir por cero");
                 }
                
             }
@@ -203,6 +208,9 @@ namespace Calculadora
             txtResultado.Text = Numero1.ToString();
         }
 
-        
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

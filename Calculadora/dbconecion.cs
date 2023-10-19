@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculadora
 {
-    internal class dbconencion
+    internal class dbconecion
     {
     }
 }
